@@ -1,113 +1,119 @@
-import { PoundSterling, CheckCircle2, TrendingUp } from "lucide-react";
+import { PoundSterling, CheckCircle2, TrendingUp, Wallet, PieChart, Activity, ArrowUpRight } from "lucide-react";
 import AnimatedText from "../AnimatedText";
 import { motion } from "framer-motion";
+import MeshBackground from "../MeshBackground";
 
 const FinancialPlanSlide = () => {
-  const fundingUse = [
-    "Regulatory setup and compliance costs",
-    "Initial staff recruitment and mandatory training",
-    "Insurance, safeguarding, and operational readiness",
-    "Essential systems and tools for safe service delivery",
-  ];
-
   const highlights = [
-    { label: "Revenue Sources", value: "Hourly domiciliary care, bundled packages" },
-    { label: "Pricing Model", value: "Competitive, transparent hourly rates" },
-    { label: "Profit Strategy", value: "Quality focus, then controlled growth" },
-    { label: "Sustainability", value: "Lean structure, scalable workforce" },
+    { label: "Funding Strategy", value: "Raise & Bootstrap", icon: Wallet, color: "text-primary", bg: "bg-primary/10" },
+    { label: "Pricing Model", value: "Competitive Hourly", icon: Activity, color: "text-coral", bg: "bg-coral/10" },
+    { label: "Growth Strategy", value: "Lean & Scalable", icon: TrendingUp, color: "text-gold", bg: "bg-gold/10" },
+    { label: "Revenue Goal", value: "Operational Break-even", icon: PieChart, color: "text-navy", bg: "bg-navy/10" },
   ];
 
   return (
-    <section className="slide slide-light relative flex items-center">
-      {/* Subtle background pattern */}
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, black 1px, transparent 0)', backgroundSize: '40px 40px' }} />
+    <section className="slide bg-white relative overflow-hidden flex items-center">
+      {/* Mesh Background */}
+      <MeshBackground colors={["#F8FAFC", "#F1F5F9", "#F0F9FF"]} />
 
-      <div className="max-w-6xl mx-auto w-full relative z-10 px-4">
-        <AnimatedText className="mb-4">
-          <span className="font-body text-xs md:text-sm uppercase tracking-[0.3em] text-primary font-semibold">
-            Section 11
-          </span>
-        </AnimatedText>
+      <div className="max-w-7xl mx-auto w-full relative z-10 px-4">
+        <div className="text-center mb-12 lg:mb-20">
+          <AnimatedText className="mb-4">
+            <span className="font-body text-sm uppercase tracking-[0.4em] text-primary font-bold">
+              Section 14
+            </span>
+          </AnimatedText>
 
-        <AnimatedText delay={0.1}>
-          <h2 className="font-display text-4xl md:text-6xl font-bold text-foreground mb-4">
-            Financial <span className="text-gradient">Plan</span>
-          </h2>
-        </AnimatedText>
+          <AnimatedText delay={0.1}>
+            <h2 className="font-display text-5xl lg:text-8xl font-bold text-navy mb-6 tracking-tight">
+              Financial <span className="text-gradient">Sustainability</span>
+            </h2>
+          </AnimatedText>
 
-        <AnimatedText delay={0.2}>
-          <p className="font-body text-lg text-muted-foreground max-w-xl mb-12">
-            Funding-ready overview with financial discipline and sustainability as core principles.
-          </p>
-        </AnimatedText>
+          <AnimatedText delay={0.2}>
+            <p className="font-body text-lg lg:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              A balanced approach to capital growth and operational excellence.
+            </p>
+          </AnimatedText>
+        </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Funding Use */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-stretch">
+
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="bg-primary rounded-[2rem] p-8 md:p-10 text-primary-foreground shadow-glow relative overflow-hidden"
+            transition={{ duration: 0.8 }}
+            className="bg-navy rounded-[3rem] p-10 lg:p-14 text-white shadow-2xl relative overflow-hidden flex flex-col group border border-white/10"
           >
-            {/* Background accent */}
-            <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />
+            <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 blur-[120px] rounded-full group-hover:bg-primary/20 transition-colors duration-700" />
+            <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-coral/5 blur-[100px] rounded-full" />
 
-            <div className="flex items-center gap-6 mb-10">
-              <div className="w-20 h-20 rounded-2xl bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20">
-                <PoundSterling className="w-10 h-10" />
+            <div className="flex items-center gap-8 mb-12 lg:mb-16">
+              <div className="w-20 h-20 lg:w-24 lg:h-24 rounded-3xl bg-primary flex items-center justify-center shadow-glow shrink-0 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+                <PoundSterling className="w-10 h-10 lg:w-12 lg:h-12 text-white" />
               </div>
               <div>
-                <span className="font-body text-sm md:text-base opacity-80 block font-medium">Startup Grant</span>
-                <span className="font-display text-5xl md:text-6xl font-bold">£6,000</span>
+                <span className="font-body text-xs lg:text-sm text-primary-foreground/60 uppercase tracking-[0.3em] font-bold block mb-2">Capital Strategy</span>
+                <span className="font-display text-3xl lg:text-5xl font-bold block leading-tight tracking-tight">RAISE & <span className="text-primary italic">BOOTSTRAP</span></span>
               </div>
             </div>
 
-            <h3 className="font-display text-2xl font-bold mb-6">Funding Allocation</h3>
-            <div className="space-y-4">
-              {fundingUse.map((item, index) => (
+            <h3 className="font-display text-2xl lg:text-3xl font-bold mb-8 flex items-center gap-3">
+              Primary Allocations
+              <ArrowUpRight className="w-6 h-6 text-primary" />
+            </h3>
+
+            <div className="space-y-4 lg:space-y-6 flex-grow">
+              {[
+                "Regulatory & CQC Registration",
+                "Advanced Care Training Programs",
+                "Insurance & Legal Safeguards",
+                "Digital Care Infrastructure"
+              ].map((item, i) => (
                 <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -10 }}
+                  key={i}
+                  initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: 0.3 + index * 0.1 }}
-                  className="flex items-start gap-4"
+                  transition={{ delay: 0.3 + i * 0.1 }}
+                  className="flex items-center gap-6 py-4 lg:py-5 border-b border-white/5 group/list transition-colors hover:border-white/20"
                 >
-                  <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center shrink-0 mt-0.5">
-                    <CheckCircle2 className="w-4 h-4" />
+                  <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center border border-white/10 group-hover/list:bg-primary/20 transition-all">
+                    <CheckCircle2 className="w-4 h-4 text-primary" />
                   </div>
-                  <span className="font-body text-sm md:text-base opacity-95">{item}</span>
+                  <span className="font-body text-base lg:text-xl text-white/80 group-hover/list:text-white transition-colors">{item}</span>
                 </motion.div>
               ))}
             </div>
           </motion.div>
 
-          {/* Financial Highlights */}
-          <div className="grid grid-cols-1 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8">
             {highlights.map((item, index) => (
               <motion.div
                 key={item.label}
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.1 * index }}
-                whileHover={{ x: 10, backgroundColor: 'rgba(var(--accent), 0.5)' }}
-                className="card-glass p-6 flex items-center gap-6 group"
+                transition={{ delay: 0.1 * index, duration: 0.6 }}
+                className="card-glass p-8 lg:p-10 rounded-[2.5rem] flex flex-col items-start group hover:-translate-y-2 transition-all duration-500 cursor-default"
               >
-                <div className="w-14 h-14 rounded-2xl bg-accent flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
-                  <TrendingUp className="w-7 h-7 text-primary group-hover:text-primary-foreground" />
+                <div className={`w-14 h-14 lg:w-16 lg:h-16 rounded-2xl ${item.bg} flex items-center justify-center mb-10 group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-sm shadow-black/5`}>
+                  <item.icon className={`w-7 h-7 lg:w-8 lg:h-8 ${item.color}`} />
                 </div>
-                <div>
-                  <span className="font-body text-xs uppercase tracking-[0.2em] text-muted-foreground block mb-1 font-semibold">
-                    {item.label}
-                  </span>
-                  <span className="font-display text-xl font-bold text-foreground">
-                    {item.value}
-                  </span>
+                <div className="mt-auto">
+                  <span className="font-body text-[10px] lg:text-xs uppercase tracking-[0.2em] text-muted-foreground font-bold block mb-3 group-hover:text-primary transition-colors">{item.label}</span>
+                  <span className="font-display text-xl lg:text-2xl font-bold text-navy leading-tight">{item.value}</span>
+                </div>
+
+                {/* Decorative arrow */}
+                <div className="absolute top-8 right-8 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-x-4 group-hover:translate-x-0">
+                  <ArrowUpRight className={`w-5 h-5 ${item.color}`} />
                 </div>
               </motion.div>
             ))}
           </div>
+
         </div>
       </div>
     </section>

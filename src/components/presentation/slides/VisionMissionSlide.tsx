@@ -1,5 +1,7 @@
 import { Eye, Target, Heart, Shield, Lightbulb, Sparkles, UserCheck, HeartHandshake } from "lucide-react";
 import AnimatedText from "../AnimatedText";
+import MeshBackground from "../MeshBackground";
+import { motion } from "framer-motion";
 
 const VisionMissionSlide = () => {
   const values = [
@@ -12,65 +14,77 @@ const VisionMissionSlide = () => {
   ];
 
   return (
-    <section className="slide slide-accent relative overflow-hidden">
+    <section className="slide bg-navy relative overflow-hidden">
+      <MeshBackground colors={["#0D9488", "#1E293B", "#115E59"]} className="opacity-40" />
+
       <div className="max-w-6xl mx-auto w-full relative z-10">
         <AnimatedText className="mb-4">
-          <span className="font-body text-sm uppercase tracking-[0.2em] text-primary-foreground/80">
-            Section 06
+          <span className="font-body text-sm uppercase tracking-[0.2em] text-primary-foreground/60 font-bold">
+            Section 09
           </span>
         </AnimatedText>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div>
             <AnimatedText delay={0.1}>
-              <h2 className="font-display text-5xl md:text-6xl font-bold text-primary-foreground mb-12">
+              <h2 className="font-display text-5xl md:text-7xl font-bold text-white mb-12 tracking-tight">
                 Vision, Mission
                 <br />
-                & Values
+                <span className="text-gradient">& Values</span>
               </h2>
             </AnimatedText>
 
-            <div className="bg-primary-foreground/10 backdrop-blur-sm rounded-2xl p-6 mb-6 border border-primary-foreground/20 animate-fade-up" style={{ animationDelay: "0.2s" }}>
-              <div className="flex items-center gap-3 mb-4">
-                <Eye className="w-6 h-6 text-primary-foreground" />
-                <span className="font-body text-sm uppercase tracking-wider text-primary-foreground/80">
+            <div className="bg-white/5 backdrop-blur-xl rounded-3xl p-8 mb-6 border border-white/10 shadow-2xl group hover:bg-white/10 transition-all duration-500 animate-fade-up" style={{ animationDelay: "0.2s" }}>
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-12 h-12 rounded-2xl bg-primary/20 flex items-center justify-center border border-primary/30 group-hover:scale-110 transition-transform">
+                  <Eye className="w-6 h-6 text-primary" />
+                </div>
+                <span className="font-body text-sm uppercase tracking-[0.3em] text-primary-foreground/60 font-bold">
                   Our Vision
                 </span>
               </div>
-              <p className="font-display text-xl text-primary-foreground leading-relaxed">
-                To become a leading, technology-enabled elderly care provider in the UK over the next 5–10 years.
+              <p className="font-display text-2xl text-white leading-relaxed">
+                To become a <span className="text-primary font-bold">leading, technology-enabled</span> elderly care provider in the UK over the next 5–10 years.
               </p>
             </div>
 
-            <div className="bg-primary-foreground/10 backdrop-blur-sm rounded-2xl p-6 border border-primary-foreground/20 animate-fade-up" style={{ animationDelay: "0.3s" }}>
-              <div className="flex items-center gap-3 mb-4">
-                <Target className="w-6 h-6 text-primary-foreground" />
-                <span className="font-body text-sm uppercase tracking-wider text-primary-foreground/80">
+            <div className="bg-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10 shadow-2xl group hover:bg-white/10 transition-all duration-500 animate-fade-up" style={{ animationDelay: "0.3s" }}>
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-12 h-12 rounded-2xl bg-coral/20 flex items-center justify-center border border-coral/30 group-hover:scale-110 transition-transform">
+                  <Target className="w-6 h-6 text-coral" />
+                </div>
+                <span className="font-body text-sm uppercase tracking-[0.3em] text-primary-foreground/60 font-bold">
                   Our Mission
                 </span>
               </div>
-              <p className="font-display text-xl text-primary-foreground leading-relaxed">
-                To deliver safe, respectful, and responsive care services that enhance independence and quality of life for elderly individuals.
+              <p className="font-display text-2xl text-white leading-relaxed">
+                To deliver <span className="text-coral font-bold">safe, respectful, and responsive</span> care services that enhance independence and quality of life.
               </p>
             </div>
           </div>
 
-          <div className="bg-primary-foreground rounded-3xl p-8 shadow-card animate-scale-in" style={{ animationDelay: "0.4s" }}>
-            <h3 className="font-display text-2xl font-bold text-foreground mb-6">
+          <div className="bg-white rounded-[3rem] p-10 shadow-2xl animate-scale-in relative overflow-hidden" style={{ animationDelay: "0.4s" }}>
+            <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 blur-3xl rounded-full" />
+            <div className="absolute bottom-0 left-0 w-32 h-32 bg-coral/5 blur-3xl rounded-full" />
+
+            <h3 className="font-display text-3xl font-bold text-navy mb-8">
               Core Values
             </h3>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-4 relative z-10">
               {values.map((value, index) => (
-                <div
+                <motion.div
                   key={value.label}
-                  className="flex items-center gap-3 bg-accent/50 rounded-xl p-4 cursor-pointer hover:bg-accent hover:scale-105 transition-all animate-fade-up"
+                  whileHover={{ scale: 1.05, backgroundColor: "rgba(20, 184, 166, 0.05)" }}
+                  className="flex items-center gap-4 bg-accent/30 rounded-2xl p-5 border border-primary/5 cursor-pointer transition-all animate-fade-up shadow-sm hover:shadow-md"
                   style={{ animationDelay: `${0.5 + index * 0.08}s` }}
                 >
-                  <value.icon className="w-5 h-5 text-primary" />
-                  <span className="font-body font-medium text-foreground">
+                  <div className="w-10 h-10 rounded-xl bg-white shadow-soft flex items-center justify-center shrink-0">
+                    <value.icon className="w-5 h-5 text-primary" />
+                  </div>
+                  <span className="font-body font-bold text-navy text-sm lg:text-base">
                     {value.label}
                   </span>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>

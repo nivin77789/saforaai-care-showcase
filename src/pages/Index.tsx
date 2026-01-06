@@ -1,27 +1,36 @@
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useEffect, useRef, useState, useCallback, Suspense, lazy, useMemo } from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
 import SlideNavigation from "@/components/presentation/SlideNavigation";
-import HeroSlide from "@/components/presentation/slides/HeroSlide";
-import BusinessInfoSlide from "@/components/presentation/slides/BusinessInfoSlide";
-import ExecutiveSummarySlide from "@/components/presentation/slides/ExecutiveSummarySlide";
-import IntroductionSlide from "@/components/presentation/slides/IntroductionSlide";
-import PersonasSlide from "@/components/presentation/slides/PersonasSlide";
-import ServicesSlide from "@/components/presentation/slides/ServicesSlide";
-import VisionMissionSlide from "@/components/presentation/slides/VisionMissionSlide";
-import GoalsSlide from "@/components/presentation/slides/GoalsSlide";
-import StrategicPrioritiesSlide from "@/components/presentation/slides/StrategicPrioritiesSlide";
-import OperationsWorkforceSlide from "@/components/presentation/slides/OperationsWorkforceSlide";
-import TechnologyPartnershipsSlide from "@/components/presentation/slides/TechnologyPartnershipsSlide";
-import FinancialPlanSlide from "@/components/presentation/slides/FinancialPlanSlide";
-import ConclusionSlide from "@/components/presentation/slides/ConclusionSlide";
+import DecorativeBackground from "@/components/presentation/DecorativeBackground";
+
+// Lazy load slides for performance
+const HeroSlide = lazy(() => import("@/components/presentation/slides/HeroSlide"));
+const BusinessInfoSlide = lazy(() => import("@/components/presentation/slides/BusinessInfoSlide"));
+const ExecutiveSummarySlide = lazy(() => import("@/components/presentation/slides/ExecutiveSummarySlide"));
+const MarketAnalysisSlide = lazy(() => import("@/components/presentation/slides/MarketAnalysisSlide"));
+const IntroductionSlide = lazy(() => import("@/components/presentation/slides/IntroductionSlide"));
+const PersonasSlide = lazy(() => import("@/components/presentation/slides/PersonasSlide"));
+const ServicesSlide = lazy(() => import("@/components/presentation/slides/ServicesSlide"));
+const LifestyleMobilitySlide = lazy(() => import("@/components/presentation/slides/LifestyleMobilitySlide"));
+const ValuesSlide = lazy(() => import("@/components/presentation/slides/ValuesSlide"));
+const VisionMissionSlide = lazy(() => import("@/components/presentation/slides/VisionMissionSlide"));
+const GoalsSlide = lazy(() => import("@/components/presentation/slides/GoalsSlide"));
+const StrategicPrioritiesSlide = lazy(() => import("@/components/presentation/slides/StrategicPrioritiesSlide"));
+const OperationsWorkforceSlide = lazy(() => import("@/components/presentation/slides/OperationsWorkforceSlide"));
+const TechnologyPartnershipsSlide = lazy(() => import("@/components/presentation/slides/TechnologyPartnershipsSlide"));
+const FinancialPlanSlide = lazy(() => import("@/components/presentation/slides/FinancialPlanSlide"));
+const ConclusionSlide = lazy(() => import("@/components/presentation/slides/ConclusionSlide"));
 
 const slideNames = [
   "Welcome",
   "Business Info",
   "Executive Summary",
+  "Market Analysis",
   "Introduction",
   "Who Benefits",
   "Services",
+  "Lifestyle & Mobility",
+  "Core Values",
   "Vision & Mission",
   "Goals 2026",
   "Strategic Priorities",
@@ -51,27 +60,56 @@ const Index = () => {
       isScrolling.current = true;
       slideRefs.current[index]?.scrollIntoView({ behavior: "smooth" });
       setCurrentSlide(index);
+
+      // Reset isScrolling after animation completes
       setTimeout(() => {
         isScrolling.current = false;
-      }, 800);
+      }, 1000);
     }
   }, []);
 
+  const slides = useMemo(() => [
+    HeroSlide,
+    BusinessInfoSlide,
+    ExecutiveSummarySlide,
+    MarketAnalysisSlide,
+    IntroductionSlide,
+    PersonasSlide,
+    ServicesSlide,
+    LifestyleMobilitySlide,
+    ValuesSlide,
+    VisionMissionSlide,
+    GoalsSlide,
+    StrategicPrioritiesSlide,
+    OperationsWorkforceSlide,
+    TechnologyPartnershipsSlide,
+    FinancialPlanSlide,
+    ConclusionSlide,
+  ], []);
+
   useEffect(() => {
-    const handleScroll = () => {
+    const options = {
+      root: null, // observation is relative to the viewport
+      rootMargin: "0px",
+      threshold: 0.5, // Slide is considered active when 50% visible
+    };
+
+    const observer = new IntersectionObserver((entries) => {
       if (isScrolling.current) return;
 
-      const scrollPosition = window.scrollY + window.innerHeight / 3;
-
-      slideRefs.current.forEach((ref, index) => {
-        if (ref) {
-          const { offsetTop, offsetHeight } = ref;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const index = slideRefs.current.findIndex((ref) => ref === entry.target);
+          if (index !== -1) {
             setCurrentSlide(index);
           }
         }
       });
-    };
+    }, options);
+
+    slideRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
 
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "ArrowDown" || e.key === " ") {
@@ -83,11 +121,10 @@ const Index = () => {
       }
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
     window.addEventListener("keydown", handleKeyDown);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      observer.disconnect();
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, [currentSlide, scrollToSlide, totalSlides]);
@@ -97,7 +134,12 @@ const Index = () => {
   };
 
   return (
-    <main ref={containerRef} className="relative bg-background">
+    <main
+      ref={containerRef}
+      className="relative bg-background h-screen overflow-x-auto lg:overflow-x-hidden overflow-y-hidden lg:overflow-y-auto flex flex-row lg:flex-col snap-x lg:snap-y snap-mandatory scroll-smooth"
+    >
+      <DecorativeBackground />
+
       <motion.div
         className="fixed top-0 left-0 right-0 h-1.5 bg-primary z-[100] origin-left"
         style={{ scaleX }}
@@ -107,31 +149,30 @@ const Index = () => {
         currentSlide={currentSlide}
         totalSlides={totalSlides}
         onNavigate={scrollToSlide}
-        slideNames={slideNames}
       />
 
-      <div className="flex flex-col">
-        {[
-          HeroSlide,
-          BusinessInfoSlide,
-          ExecutiveSummarySlide,
-          IntroductionSlide,
-          PersonasSlide,
-          ServicesSlide,
-          VisionMissionSlide,
-          GoalsSlide,
-          StrategicPrioritiesSlide,
-          OperationsWorkforceSlide,
-          TechnologyPartnershipsSlide,
-          FinancialPlanSlide,
-          ConclusionSlide,
-        ].map((Slide, index) => (
+      <div className="flex flex-row lg:flex-col relative z-10 w-max lg:w-full">
+        {slides.map((Slide, index) => (
           <section
             key={index}
             ref={setSlideRef(index)}
-            className="min-h-screen w-full relative"
+            className="w-screen lg:w-full h-screen relative snap-start overflow-hidden lg:overflow-visible flex-shrink-0"
           >
-            <Slide />
+            <Suspense fallback={
+              <div className="flex items-center justify-center w-full h-full bg-background/50 backdrop-blur-sm">
+                <div className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin" />
+              </div>
+            }>
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ duration: 0.5 }}
+                className="h-full w-full overflow-y-auto lg:overflow-hidden"
+              >
+                <Slide />
+              </motion.div>
+            </Suspense>
           </section>
         ))}
       </div>
