@@ -159,11 +159,23 @@
   }
 
   .card-glass {
-    @apply bg-card/80 backdrop-blur-sm border border-border/50 rounded-2xl shadow-card;
+    @apply bg-card/70 backdrop-blur-md border border-white/20 rounded-2xl shadow-card transition-all duration-300;
+  }
+
+  .card-glass:hover {
+    @apply bg-card/90 border-white/40 -translate-y-1 shadow-glow;
   }
 
   .highlight-box {
-    @apply bg-accent/50 border-l-4 border-primary px-6 py-4 rounded-r-xl;
+    @apply bg-accent/30 border-l-4 border-primary px-6 py-4 rounded-r-xl backdrop-blur-sm;
+  }
+
+  .scroll-indicator-container {
+    @apply fixed top-0 left-0 w-full h-1 z-[60] bg-muted/20;
+  }
+
+  .scroll-indicator-bar {
+    @apply h-full bg-primary origin-left scale-x-0;
   }
 }
 
@@ -174,5 +186,9 @@
 
   .font-body {
     font-family: 'Inter', sans-serif;
+  }
+
+  .text-glow {
+    text-shadow: 0 0 20px hsl(var(--primary) / 0.3);
   }
 }

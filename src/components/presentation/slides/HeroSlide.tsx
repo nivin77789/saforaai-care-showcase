@@ -1,55 +1,86 @@
 import { Heart, Shield, Users } from "lucide-react";
+import { motion } from "framer-motion";
 
 const HeroSlide = () => {
   return (
-    <section className="slide slide-accent relative overflow-hidden">
-      {/* Decorative elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-1/4 -right-1/4 w-[800px] h-[800px] rounded-full border border-primary-foreground/10 animate-scale-in" />
-        <div className="absolute -bottom-1/4 -left-1/4 w-[600px] h-[600px] rounded-full border border-primary-foreground/10 animate-scale-in" style={{ animationDelay: "0.2s" }} />
+    <section className="slide slide-accent relative overflow-hidden flex items-center justify-center">
+      {/* Dynamic Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <motion.div
+          animate={{
+            scale: [1, 1.2, 1],
+            rotate: [0, 90, 0],
+            x: [0, 50, 0],
+            y: [0, 30, 0]
+          }}
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+          className="absolute -top-1/4 -right-1/4 w-[600px] md:w-[800px] h-[600px] md:h-[800px] rounded-full bg-primary-foreground/5 blur-3xl"
+        />
+        <motion.div
+          animate={{
+            scale: [1, 1.3, 1],
+            rotate: [0, -45, 0],
+            x: [0, -40, 0],
+            y: [0, 60, 0]
+          }}
+          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+          className="absolute -bottom-1/4 -left-1/4 w-[400px] md:w-[600px] h-[400px] md:h-[600px] rounded-full bg-primary-foreground/5 blur-3xl"
+        />
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto w-full">
-        <div className="flex items-center gap-2 mb-8 animate-fade-up">
+      <div className="relative z-10 max-w-6xl mx-auto w-full text-center md:text-left">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="flex items-center justify-center md:justify-start gap-2 mb-8"
+        >
           <div className="w-12 h-1 bg-primary-foreground/60 rounded-full" />
-          <span className="font-body text-sm uppercase tracking-[0.2em] text-primary-foreground/80">
+          <span className="font-body text-xs md:text-sm uppercase tracking-[0.3em] text-primary-foreground/80 font-medium">
             Business Plan 2026
           </span>
-        </div>
+        </motion.div>
 
-        <h1 className="font-display text-6xl md:text-8xl lg:text-9xl font-bold text-primary-foreground mb-6 animate-fade-up" style={{ animationDelay: "0.2s" }}>
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-bold text-primary-foreground mb-8 tracking-tight scale-110"
+        >
           Saforaai
-        </h1>
+        </motion.h1>
 
-        <p className="font-body text-xl md:text-2xl text-primary-foreground/90 max-w-2xl mb-12 animate-fade-up" style={{ animationDelay: "0.4s" }}>
-          Compassionate Elderly Care, Delivered with Dignity
-        </p>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="font-body text-lg md:text-2xl text-primary-foreground/90 max-w-2xl mb-12 leading-relaxed mx-auto md:mx-0"
+        >
+          Compassionate Elderly Care, Delivered with Dignity.
+          Building a future where every senior lives with purpose and pride.
+        </motion.p>
 
-        <div className="flex flex-wrap gap-6 animate-fade-up" style={{ animationDelay: "0.6s" }}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.6 }}
+          className="flex flex-wrap justify-center md:justify-start gap-4 md:gap-6"
+        >
           {[
-            { icon: Heart, label: "Person-Centered Care" },
-            { icon: Shield, label: "Trusted & Compliant" },
-            { icon: Users, label: "Community Focused" },
+            { icon: Heart, label: "Person-Centered" },
+            { icon: Shield, label: "Trusted & Secure" },
+            { icon: Users, label: "Community First" },
           ].map((item, index) => (
-            <div
+            <motion.div
               key={item.label}
-              className="flex items-center gap-3 bg-primary-foreground/10 backdrop-blur-sm px-5 py-3 rounded-full border border-primary-foreground/20 hover:bg-primary-foreground/20 transition-colors"
-              style={{ animationDelay: `${0.8 + index * 0.1}s` }}
+              whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.2)" }}
+              className="flex items-center gap-3 bg-white/10 backdrop-blur-md px-6 py-4 rounded-2xl border border-white/20 transition-all cursor-default"
             >
               <item.icon className="w-5 h-5 text-primary-foreground" />
-              <span className="font-body text-sm text-primary-foreground">{item.label}</span>
-            </div>
+              <span className="font-body text-sm font-medium text-primary-foreground">{item.label}</span>
+            </motion.div>
           ))}
-        </div>
-
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-fade-in" style={{ animationDelay: "1.2s" }}>
-          <span className="font-body text-xs text-primary-foreground/60 uppercase tracking-widest">
-            Scroll to explore
-          </span>
-          <div className="w-5 h-8 rounded-full border-2 border-primary-foreground/40 flex items-start justify-center p-1">
-            <div className="w-1.5 h-1.5 bg-primary-foreground rounded-full animate-float" />
-          </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

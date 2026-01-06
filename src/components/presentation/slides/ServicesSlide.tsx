@@ -1,5 +1,6 @@
 import { HandHeart, MessageCircleHeart, Pill, ShieldCheck, Zap } from "lucide-react";
 import AnimatedText from "../AnimatedText";
+import { motion } from "framer-motion";
 
 const ServicesSlide = () => {
   const services = [
@@ -27,75 +28,88 @@ const ServicesSlide = () => {
 
   const differentiators = [
     "Faster response times",
-    "Trained carers",
-    "Ethical practices",
-    "Digital care tools",
+    "Trained professional carers",
+    "Ethical practices & transparency",
+    "Advanced digital care tools",
+    "Tailored care plans",
+    "24/7 client support line",
   ];
 
   return (
-    <section className="slide bg-coral-light relative overflow-hidden">
-      {/* Decorative circles */}
-      <div className="absolute top-1/2 right-0 w-96 h-96 rounded-full bg-coral/10 -translate-y-1/2 translate-x-1/2 animate-scale-in" />
+    <section className="slide bg-coral-light relative overflow-hidden flex items-center">
+      {/* Decorative elements */}
+      <div className="absolute top-1/2 -right-48 w-[600px] h-[600px] rounded-full bg-coral/10 -translate-y-1/2 blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-24 -left-24 w-96 h-96 rounded-full bg-primary/10 blur-3xl pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto w-full relative z-10">
+      <div className="max-w-6xl mx-auto w-full relative z-10 px-4">
         <AnimatedText className="mb-4">
-          <span className="font-body text-sm uppercase tracking-[0.2em] text-coral">
+          <span className="font-body text-xs md:text-sm uppercase tracking-[0.3em] text-coral font-semibold">
             Section 05
           </span>
         </AnimatedText>
 
         <AnimatedText delay={0.1}>
-          <h2 className="font-display text-5xl md:text-6xl font-bold text-foreground mb-4">
+          <h2 className="font-display text-4xl md:text-6xl font-bold text-foreground mb-12">
             Services <span className="text-gradient-warm">Offered</span>
           </h2>
         </AnimatedText>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-12">
-          <div className="space-y-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {services.map((service, index) => (
-              <div
+              <motion.div
                 key={service.title}
-                className="bg-card rounded-2xl p-5 flex items-start gap-4 shadow-soft hover:shadow-card transition-shadow animate-slide-in-left"
-                style={{ animationDelay: `${0.1 * index}s` }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                whileHover={{ y: -5 }}
+                className="bg-card/80 backdrop-blur-md rounded-2xl p-6 shadow-soft hover:shadow-card transition-all border border-white/40"
               >
-                <div className="w-12 h-12 rounded-xl bg-coral/20 flex items-center justify-center shrink-0">
-                  <service.icon className="w-6 h-6 text-coral" />
+                <div className="w-12 h-12 rounded-2xl bg-coral/20 flex items-center justify-center shrink-0 mb-4 group-hover:bg-coral transition-colors">
+                  <service.icon className="w-6 h-6 text-coral group-hover:text-white" />
                 </div>
-                <div>
-                  <h3 className="font-display text-lg font-semibold text-foreground mb-1">
-                    {service.title}
-                  </h3>
-                  <p className="font-body text-sm text-muted-foreground">
-                    {service.desc}
-                  </p>
-                </div>
-              </div>
+                <h3 className="font-display text-xl font-bold text-foreground mb-2">
+                  {service.title}
+                </h3>
+                <p className="font-body text-sm text-muted-foreground leading-relaxed">
+                  {service.desc}
+                </p>
+              </motion.div>
             ))}
           </div>
 
-          <div className="bg-card rounded-3xl p-8 shadow-card animate-scale-in" style={{ animationDelay: "0.3s" }}>
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
-                <Zap className="w-5 h-5 text-primary-foreground" />
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="card-glass p-8 md:p-10"
+          >
+            <div className="flex items-center gap-4 mb-8">
+              <div className="w-12 h-12 rounded-2xl bg-primary flex items-center justify-center shadow-glow">
+                <Zap className="w-6 h-6 text-primary-foreground" />
               </div>
-              <h3 className="font-display text-2xl font-semibold text-foreground">
+              <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground">
                 What Sets Us Apart
               </h3>
             </div>
 
-            <div className="space-y-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6">
               {differentiators.map((item, index) => (
-                <div
+                <motion.div
                   key={item}
-                  className="flex items-center gap-3 animate-slide-in-right"
-                  style={{ animationDelay: `${0.4 + index * 0.1}s` }}
+                  initial={{ opacity: 0, x: 10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 + index * 0.1 }}
+                  className="flex items-center gap-4 group"
                 >
-                  <div className="w-2 h-2 rounded-full bg-primary" />
-                  <span className="font-body text-foreground">{item}</span>
-                </div>
+                  <div className="w-2 h-2 rounded-full bg-primary group-hover:scale-150 transition-transform" />
+                  <span className="font-body text-foreground font-medium">{item}</span>
+                </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

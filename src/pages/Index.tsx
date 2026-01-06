@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, useCallback } from "react";
+import { motion, useScroll, useSpring } from "framer-motion";
 import SlideNavigation from "@/components/presentation/SlideNavigation";
 import HeroSlide from "@/components/presentation/slides/HeroSlide";
 import BusinessInfoSlide from "@/components/presentation/slides/BusinessInfoSlide";
@@ -36,6 +37,13 @@ const Index = () => {
   const slideRefs = useRef<(HTMLElement | null)[]>([]);
   const isScrolling = useRef(false);
 
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
   const totalSlides = slideNames.length;
 
   const scrollToSlide = useCallback((index: number) => {
@@ -53,7 +61,7 @@ const Index = () => {
     const handleScroll = () => {
       if (isScrolling.current) return;
 
-      const scrollPosition = window.scrollY + window.innerHeight / 2;
+      const scrollPosition = window.scrollY + window.innerHeight / 3;
 
       slideRefs.current.forEach((ref, index) => {
         if (ref) {
@@ -75,7 +83,7 @@ const Index = () => {
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     window.addEventListener("keydown", handleKeyDown);
 
     return () => {
@@ -89,7 +97,12 @@ const Index = () => {
   };
 
   return (
-    <main ref={containerRef} className="relative">
+    <main ref={containerRef} className="relative bg-background">
+      <motion.div
+        className="fixed top-0 left-0 right-0 h-1.5 bg-primary z-[100] origin-left"
+        style={{ scaleX }}
+      />
+
       <SlideNavigation
         currentSlide={currentSlide}
         totalSlides={totalSlides}
@@ -97,44 +110,30 @@ const Index = () => {
         slideNames={slideNames}
       />
 
-      <div ref={setSlideRef(0)}>
-        <HeroSlide />
-      </div>
-      <div ref={setSlideRef(1)}>
-        <BusinessInfoSlide />
-      </div>
-      <div ref={setSlideRef(2)}>
-        <ExecutiveSummarySlide />
-      </div>
-      <div ref={setSlideRef(3)}>
-        <IntroductionSlide />
-      </div>
-      <div ref={setSlideRef(4)}>
-        <PersonasSlide />
-      </div>
-      <div ref={setSlideRef(5)}>
-        <ServicesSlide />
-      </div>
-      <div ref={setSlideRef(6)}>
-        <VisionMissionSlide />
-      </div>
-      <div ref={setSlideRef(7)}>
-        <GoalsSlide />
-      </div>
-      <div ref={setSlideRef(8)}>
-        <StrategicPrioritiesSlide />
-      </div>
-      <div ref={setSlideRef(9)}>
-        <OperationsWorkforceSlide />
-      </div>
-      <div ref={setSlideRef(10)}>
-        <TechnologyPartnershipsSlide />
-      </div>
-      <div ref={setSlideRef(11)}>
-        <FinancialPlanSlide />
-      </div>
-      <div ref={setSlideRef(12)}>
-        <ConclusionSlide />
+      <div className="flex flex-col">
+        {[
+          HeroSlide,
+          BusinessInfoSlide,
+          ExecutiveSummarySlide,
+          IntroductionSlide,
+          PersonasSlide,
+          ServicesSlide,
+          VisionMissionSlide,
+          GoalsSlide,
+          StrategicPrioritiesSlide,
+          OperationsWorkforceSlide,
+          TechnologyPartnershipsSlide,
+          FinancialPlanSlide,
+          ConclusionSlide,
+        ].map((Slide, index) => (
+          <section
+            key={index}
+            ref={setSlideRef(index)}
+            className="min-h-screen w-full relative"
+          >
+            <Slide />
+          </section>
+        ))}
       </div>
     </main>
   );
