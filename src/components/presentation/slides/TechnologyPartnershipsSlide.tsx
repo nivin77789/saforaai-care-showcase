@@ -12,22 +12,22 @@ const TechnologyPartnershipsSlide = memo(() => {
   ];
 
   return (
-    <section className="slide bg-white relative overflow-hidden flex items-center py-20 lg:py-0">
+    <section className="slide bg-white relative overflow-hidden flex">
       {/* Mesh Background */}
       <MeshBackground colors={["#F0F9FF", "#FDF2F8", "#ECFEFF"]} />
 
-      <div className="max-w-7xl mx-auto w-full relative z-10 px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
+      <div className="max-w-7xl mx-auto w-full relative z-10 px-4 py-8 lg:py-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
 
           <div>
-            <AnimatedText className="mb-4">
+            <AnimatedText className="mb-2">
               <span className="font-body text-xs lg:text-sm uppercase tracking-[0.4em] text-primary font-bold">
                 Section 13
               </span>
             </AnimatedText>
 
             <AnimatedText delay={0.1}>
-              <h2 className="font-display text-4xl md:text-8xl font-bold text-navy mb-10 leading-[1.1] tracking-tight">
+              <h2 className="font-display text-4xl lg:text-7xl font-bold text-navy mb-6 leading-[1.1] tracking-tight">
                 Tech & <br />
                 <span className="text-gradient">Innovation</span>
               </h2>
@@ -41,14 +41,14 @@ const TechnologyPartnershipsSlide = memo(() => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.2 + index * 0.1, duration: 0.6 }}
-                  className="flex items-center gap-6 lg:gap-8 p-6 lg:p-8 card-glass rounded-[2rem] lg:rounded-[2.5rem] group hover:translate-x-4 transition-all duration-500"
+                  className="flex items-center gap-6 lg:gap-8 p-5 lg:p-6 card-glass rounded-[1.5rem] lg:rounded-[2rem] group hover:translate-x-4 transition-all duration-500"
                 >
-                  <div className={`w-12 h-12 lg:w-20 lg:h-20 rounded-2xl ${tech.bg} shadow-soft flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500`}>
-                    <tech.icon className={`w-6 h-6 lg:w-10 lg:h-10 ${tech.color}`} />
+                  <div className={`w-12 h-12 lg:w-16 lg:h-16 rounded-2xl ${tech.bg} shadow-soft flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500`}>
+                    <tech.icon className={`w-6 h-6 lg:w-8 lg:h-8 ${tech.color}`} />
                   </div>
                   <div>
-                    <h3 className="font-display text-xl lg:text-3xl font-bold text-navy mb-1 lg:mb-2 group-hover:text-primary transition-colors">{tech.name}</h3>
-                    <p className="font-body text-sm lg:text-lg text-navy/70 leading-relaxed font-medium">{tech.desc}</p>
+                    <h3 className="font-display text-lg lg:text-2xl font-bold text-navy mb-1 group-hover:text-primary transition-colors">{tech.name}</h3>
+                    <p className="font-body text-xs lg:text-sm text-navy/70 leading-relaxed font-medium">{tech.desc}</p>
                   </div>
                 </motion.div>
               ))}

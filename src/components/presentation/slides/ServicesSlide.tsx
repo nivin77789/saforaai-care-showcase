@@ -49,28 +49,28 @@ const ServicesSlide = memo(() => {
   ];
 
   return (
-    <section className="slide bg-white relative overflow-hidden flex items-center">
+    <section className="slide bg-white relative overflow-hidden flex">
       <MeshBackground colors={["#FFF1F2", "#F0FDFA", "#FFFBEB"]} />
 
-      <div className="max-w-7xl mx-auto w-full relative z-10 px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div className="max-w-7xl mx-auto w-full relative z-10 px-4 py-8 lg:py-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
 
           <div>
-            <AnimatedText className="mb-4">
+            <AnimatedText className="mb-2">
               <span className="font-body text-sm uppercase tracking-[0.4em] text-coral font-bold">
                 Section 06
               </span>
             </AnimatedText>
 
             <AnimatedText delay={0.1}>
-              <h2 className="font-display text-5xl md:text-8xl font-bold text-navy mb-8 tracking-tight">
+              <h2 className="font-display text-4xl lg:text-7xl font-bold text-navy mb-6 tracking-tight">
                 Our Core <br />
                 <span className="text-gradient-warm">Services</span>
               </h2>
             </AnimatedText>
 
             <AnimatedText delay={0.2}>
-              <p className="font-body text-xl lg:text-2xl text-muted-foreground mb-8 lg:mb-12 leading-relaxed max-w-lg">
+              <p className="font-body text-base lg:text-xl text-muted-foreground mb-6 lg:mb-10 leading-relaxed max-w-lg">
                 Comprehensive, person-centered care designed to maintain independence and enhance quality of life at home.
               </p>
             </AnimatedText>

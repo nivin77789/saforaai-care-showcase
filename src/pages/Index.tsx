@@ -19,6 +19,8 @@ const StrategicPrioritiesSlide = lazy(() => import("@/components/presentation/sl
 const OperationsWorkforceSlide = lazy(() => import("@/components/presentation/slides/OperationsWorkforceSlide"));
 const TechnologyPartnershipsSlide = lazy(() => import("@/components/presentation/slides/TechnologyPartnershipsSlide"));
 const FinancialPlanSlide = lazy(() => import("@/components/presentation/slides/FinancialPlanSlide"));
+const BusinessProfitSlide = lazy(() => import("@/components/presentation/slides/BusinessProfitSlide"));
+const AdvantagesSlide = lazy(() => import("@/components/presentation/slides/AdvantagesSlide"));
 const ConclusionSlide = lazy(() => import("@/components/presentation/slides/ConclusionSlide"));
 
 const slideNames = [
@@ -36,7 +38,9 @@ const slideNames = [
   "Strategic Priorities",
   "Operations",
   "Technology",
+  "Strategic Advantages",
   "Financial Plan",
+  "Economic Potential",
   "Conclusion",
 ];
 
@@ -46,8 +50,10 @@ const Index = () => {
   const slideRefs = useRef<(HTMLElement | null)[]>([]);
   const isScrolling = useRef(false);
 
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, {
+  const { scrollXProgress } = useScroll({
+    container: containerRef
+  });
+  const scaleX = useSpring(scrollXProgress, {
     stiffness: 100,
     damping: 30,
     restDelta: 0.001
@@ -83,7 +89,9 @@ const Index = () => {
     StrategicPrioritiesSlide,
     OperationsWorkforceSlide,
     TechnologyPartnershipsSlide,
+    AdvantagesSlide,
     FinancialPlanSlide,
+    BusinessProfitSlide,
     ConclusionSlide,
   ], []);
 
@@ -112,10 +120,10 @@ const Index = () => {
     });
 
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "ArrowDown" || e.key === " ") {
+      if (e.key === "ArrowRight" || e.key === "ArrowDown" || e.key === " ") {
         e.preventDefault();
         scrollToSlide(Math.min(totalSlides - 1, currentSlide + 1));
-      } else if (e.key === "ArrowUp") {
+      } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
         e.preventDefault();
         scrollToSlide(Math.max(0, currentSlide - 1));
       }
@@ -136,7 +144,7 @@ const Index = () => {
   return (
     <main
       ref={containerRef}
-      className="relative bg-background h-screen overflow-x-auto lg:overflow-x-hidden overflow-y-hidden lg:overflow-y-auto flex flex-row lg:flex-col snap-x lg:snap-y snap-mandatory scroll-smooth"
+      className="relative bg-background h-screen overflow-x-auto overflow-y-hidden flex flex-row snap-x snap-mandatory scroll-smooth"
     >
       <DecorativeBackground />
 
@@ -151,12 +159,12 @@ const Index = () => {
         onNavigate={scrollToSlide}
       />
 
-      <div className="flex flex-row lg:flex-col relative z-10 w-max lg:w-full">
+      <div className="flex flex-row relative z-10 w-max">
         {slides.map((Slide, index) => (
           <section
             key={index}
             ref={setSlideRef(index)}
-            className="w-screen lg:w-full h-screen relative snap-start overflow-hidden lg:overflow-visible flex-shrink-0"
+            className="w-screen h-screen relative snap-start flex-shrink-0 overflow-hidden"
           >
             <Suspense fallback={
               <div className="flex items-center justify-center w-full h-full bg-background/50 backdrop-blur-sm">
@@ -168,7 +176,7 @@ const Index = () => {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true, amount: 0.1 }}
                 transition={{ duration: 0.5 }}
-                className="h-full w-full overflow-y-auto lg:overflow-hidden"
+                className="h-full w-full overflow-y-auto overflow-x-hidden"
               >
                 <Slide />
               </motion.div>

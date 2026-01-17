@@ -52,26 +52,26 @@ const PersonasSlide = memo(() => {
   };
 
   return (
-    <section className="slide bg-white relative overflow-hidden flex items-center">
+    <section className="slide bg-white relative overflow-hidden flex">
       {/* Mesh Background */}
       <MeshBackground colors={["#ECFEFF", "#FFF7ED", "#F0F9FF"]} />
 
-      <div className="max-w-7xl mx-auto w-full relative z-10 px-4">
-        <div className="text-center mb-12 lg:mb-20">
-          <AnimatedText className="mb-4">
+      <div className="max-w-7xl mx-auto w-full relative z-10 px-4 py-8 lg:py-12">
+        <div className="text-center mb-8 lg:mb-12">
+          <AnimatedText className="mb-2">
             <span className="font-body text-sm uppercase tracking-[0.4em] text-primary font-bold">
               Section 05
             </span>
           </AnimatedText>
 
           <AnimatedText delay={0.1}>
-            <h2 className="font-display text-5xl md:text-8xl font-bold text-navy mb-6 lg:mb-8 tracking-tight">
+            <h2 className="font-display text-4xl lg:text-7xl font-bold text-navy mb-4 tracking-tight">
               Who <span className="text-gradient">Benefits</span>
             </h2>
           </AnimatedText>
 
           <AnimatedText delay={0.2}>
-            <p className="font-body text-lg lg:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed italic">
+            <p className="font-body text-base lg:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed italic">
               Empowering individuals and families through modern care values.
             </p>
           </AnimatedText>
@@ -82,35 +82,33 @@ const PersonasSlide = memo(() => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10 mb-16 lg:mb-24"
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-8 lg:mb-12"
         >
           {personas.map((persona, index) => (
             <motion.div
               key={persona.title}
               variants={item}
-              className="card-glass rounded-[2.5rem] p-8 lg:p-10 flex flex-col items-center text-center transition-all duration-500 overflow-hidden group cursor-default"
+              className="card-glass rounded-[2rem] p-6 lg:p-8 flex flex-col items-center text-center transition-all duration-500 overflow-hidden group cursor-default"
             >
-              <div className={`absolute top-0 inset-x-0 h-2 bg-gradient-to-r ${persona.grad} to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-
-              <div className={`w-20 h-20 lg:w-24 lg:h-24 rounded-[2rem] ${persona.bg} flex items-center justify-center mb-10 group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-sm shadow-black/5`}>
-                <persona.icon className={`w-10 h-10 lg:w-12 lg:h-12 ${persona.color}`} />
+              <div className={`w-16 h-16 lg:w-20 lg:h-20 rounded-[1.5rem] ${persona.bg} flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-sm shadow-black/5`}>
+                <persona.icon className={`w-8 h-8 lg:w-10 lg:h-10 ${persona.color}`} />
               </div>
 
-              <span className="font-body text-[10px] lg:text-xs uppercase tracking-[0.3em] text-primary font-bold mb-3">
+              <span className="font-body text-[10px] uppercase tracking-[0.3em] text-primary font-bold mb-2">
                 {persona.role}
               </span>
-              <h3 className="font-display text-2xl lg:text-3xl font-bold text-navy mb-10">
+              <h3 className="font-display text-xl lg:text-2xl font-bold text-navy mb-6">
                 {persona.title}
               </h3>
 
-              <div className="w-full space-y-6 text-left">
-                <div className="p-5 rounded-2xl bg-white/5 border border-black/5 group-hover:bg-white/10 transition-colors">
-                  <span className="font-body text-[10px] uppercase tracking-widest text-muted-foreground font-bold block mb-2">Pain Point</span>
-                  <p className="font-body text-sm lg:text-base text-navy font-medium leading-relaxed">{persona.pain}</p>
+              <div className="w-full space-y-4 text-left">
+                <div className="p-4 rounded-xl bg-white/5 border border-black/5 group-hover:bg-white/10 transition-colors">
+                  <span className="font-body text-[10px] uppercase tracking-widest text-muted-foreground font-bold block mb-1">Pain Point</span>
+                  <p className="font-body text-xs lg:text-sm text-navy font-medium leading-relaxed">{persona.pain}</p>
                 </div>
-                <div className="p-5 rounded-2xl bg-primary/5 border border-primary/10 group-hover:bg-primary/10 transition-colors">
-                  <span className="font-body text-[10px] uppercase tracking-widest text-primary font-bold block mb-2">Our Transformation</span>
-                  <p className="font-body text-sm lg:text-base text-navy font-bold leading-relaxed">{persona.solution}</p>
+                <div className="p-4 rounded-xl bg-primary/5 border border-primary/10 group-hover:bg-primary/10 transition-colors">
+                  <span className="font-body text-[10px] uppercase tracking-widest text-primary font-bold block mb-1">Our Transformation</span>
+                  <p className="font-body text-xs lg:text-sm text-navy font-bold leading-relaxed">{persona.solution}</p>
                 </div>
               </div>
             </motion.div>
@@ -118,21 +116,13 @@ const PersonasSlide = memo(() => {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.8 }}
-          className="p-6 lg:p-12 card-glass rounded-[2rem] lg:rounded-[3rem] text-center border-primary/10 shadow-glow relative overflow-hidden group"
+          className="p-6 lg:p-8 card-glass rounded-[2rem] text-center border-primary/10 shadow-glow relative overflow-hidden group"
         >
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-primary/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
-          <div className="flex items-center justify-center gap-6 mb-8">
-            <Quote className="w-10 h-10 text-primary opacity-20" />
-            <div className="flex gap-1">
-              {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 text-gold fill-gold" />)}
-            </div>
-            <Quote className="w-10 h-10 text-primary opacity-20 rotate-180" />
-          </div>
-          <p className="font-display text-2xl lg:text-3xl font-bold text-navy max-w-4xl mx-auto leading-relaxed italic">
+          <p className="font-display text-xl lg:text-2xl font-bold text-navy max-w-4xl mx-auto leading-relaxed italic">
             "We serve the entire ecosystem of care—ensuring those who give care are as <span className="text-primary italic">valued</span> as those who receive it."
           </p>
         </motion.div>

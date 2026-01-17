@@ -14,7 +14,7 @@ const ValuesSlide = memo(() => {
     ];
 
     return (
-        <section className="slide bg-white relative overflow-hidden flex items-center py-20 lg:py-0">
+        <section className="slide bg-white relative overflow-hidden flex">
             {/* Mesh Background */}
             <MeshBackground colors={["#ECFEFF", "#FDF2F8", "#FFFBEB"]} />
 

@@ -12,31 +12,31 @@ const OperationsWorkforceSlide = memo(() => {
   ];
 
   return (
-    <section className="slide bg-white relative overflow-hidden flex items-center py-20 lg:py-0">
+    <section className="slide bg-white relative overflow-hidden flex">
       {/* Mesh Background */}
       <MeshBackground colors={["#ECFEFF", "#F0FDFA", "#FFFBEB"]} />
 
-      <div className="max-w-7xl mx-auto w-full relative z-10 px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
+      <div className="max-w-7xl mx-auto w-full relative z-10 px-4 py-8 lg:py-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
 
           <motion.div
             initial={{ opacity: 0, scale: 0.9, x: -50 }}
             whileInView={{ opacity: 1, scale: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1, ease: "easeOut" }}
-            className="order-2 lg:order-1 mt-12 lg:mt-0"
+            className="order-2 lg:order-1 mt-6 lg:mt-0"
           >
-            <div className="relative rounded-[2.5rem] lg:rounded-[5rem] overflow-hidden shadow-2xl border-[8px] lg:border-[12px] border-white group transition-all duration-700 hover:rotate-1">
+            <div className="relative rounded-[2rem] lg:rounded-[4rem] overflow-hidden shadow-2xl border-[6px] lg:border-[10px] border-white group transition-all duration-700 hover:rotate-1">
               <img
                 src="/care_team_professional_1767709379318.png"
                 alt="Professional Care Team"
                 className="w-full h-auto object-cover transition-transform duration-1000 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-700" />
-              <div className="absolute bottom-6 left-6 right-6 lg:bottom-12 lg:left-12 lg:right-12 flex justify-between items-end translate-y-4 group-hover:translate-y-0 transition-transform duration-700">
-                <div className="bg-white/10 backdrop-blur-xl p-4 lg:p-8 rounded-[1.5rem] lg:rounded-[3rem] border border-white/20 shadow-2xl">
-                  <span className="font-display text-4xl lg:text-7xl font-bold text-white block mb-1 lg:mb-2">100%</span>
-                  <span className="font-body text-[10px] lg:text-base text-white/90 uppercase tracking-[0.3em] font-bold">Certified Staff</span>
+              <div className="absolute bottom-4 left-4 right-4 lg:bottom-8 lg:left-8 lg:right-8 flex justify-between items-end translate-y-4 group-hover:translate-y-0 transition-transform duration-700">
+                <div className="bg-white/10 backdrop-blur-xl p-3 lg:p-6 rounded-[1rem] lg:rounded-[2rem] border border-white/20 shadow-2xl">
+                  <span className="font-display text-3xl lg:text-5xl font-bold text-white block mb-1">100%</span>
+                  <span className="font-body text-[9px] lg:text-sm text-white/90 uppercase tracking-[0.3em] font-bold">Certified Staff</span>
                 </div>
               </div>
             </div>
@@ -46,14 +46,14 @@ const OperationsWorkforceSlide = memo(() => {
           </motion.div>
 
           <div className="order-1 lg:order-2">
-            <AnimatedText className="mb-4">
+            <AnimatedText className="mb-2">
               <span className="font-body text-xs lg:text-sm uppercase tracking-[0.4em] text-primary font-bold">
                 Section 12
               </span>
             </AnimatedText>
 
             <AnimatedText delay={0.1}>
-              <h2 className="font-display text-4xl md:text-8xl font-bold text-navy mb-8 lg:mb-10 leading-[1.1] tracking-tight">
+              <h2 className="font-display text-4xl lg:text-7xl font-bold text-navy mb-6 leading-[1.1] tracking-tight">
                 Operations & <br />
                 <span className="text-gradient">Workforce</span>
               </h2>

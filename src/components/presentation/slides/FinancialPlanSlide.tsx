@@ -12,26 +12,26 @@ const FinancialPlanSlide = () => {
   ];
 
   return (
-    <section className="slide bg-white relative overflow-hidden flex items-center">
+    <section className="slide bg-white relative overflow-hidden flex">
       {/* Mesh Background */}
       <MeshBackground colors={["#F8FAFC", "#F1F5F9", "#F0F9FF"]} />
 
-      <div className="max-w-7xl mx-auto w-full relative z-10 px-4">
-        <div className="text-center mb-12 lg:mb-20">
-          <AnimatedText className="mb-4">
+      <div className="max-w-7xl mx-auto w-full relative z-10 px-4 py-8 lg:py-12">
+        <div className="text-center mb-8 lg:mb-12">
+          <AnimatedText className="mb-2">
             <span className="font-body text-sm uppercase tracking-[0.4em] text-primary font-bold">
-              Section 14
+              Section 15
             </span>
           </AnimatedText>
 
           <AnimatedText delay={0.1}>
-            <h2 className="font-display text-5xl lg:text-8xl font-bold text-navy mb-6 tracking-tight">
+            <h2 className="font-display text-4xl lg:text-7xl font-bold text-navy mb-4 tracking-tight">
               Financial <span className="text-gradient">Sustainability</span>
             </h2>
           </AnimatedText>
 
           <AnimatedText delay={0.2}>
-            <p className="font-body text-lg lg:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            <p className="font-body text-base lg:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               A balanced approach to capital growth and operational excellence.
             </p>
           </AnimatedText>

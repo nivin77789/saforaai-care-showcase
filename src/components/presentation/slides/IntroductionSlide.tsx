@@ -21,25 +21,25 @@ const IntroductionSlide = memo(() => {
       <FloatingElement icon={Users} className="top-[10%] right-[10%] w-24 h-24 text-primary/20" delay={0.2} />
       <FloatingElement icon={ShieldCheck} className="bottom-[15%] left-[5%] w-16 h-16 text-coral/20" delay={0.5} />
 
-      <div className="max-w-6xl mx-auto w-full relative z-10 px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div className="max-w-6xl mx-auto w-full relative z-10 px-4 py-8 lg:py-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
 
           <div>
-            <AnimatedText className="mb-2 lg:mb-4">
+            <AnimatedText className="mb-2">
               <span className="font-body text-xs lg:text-sm uppercase tracking-[0.3em] text-primary font-bold">
                 Section 04
               </span>
             </AnimatedText>
 
             <AnimatedText delay={0.1}>
-              <h2 className="font-display text-4xl lg:text-7xl font-bold text-navy mb-4 lg:mb-8 tracking-tight">
+              <h2 className="font-display text-4xl lg:text-7xl font-bold text-navy mb-4 lg:mb-6 tracking-tight">
                 Introduction to the <br />
                 <span className="text-gradient">Company</span>
               </h2>
             </AnimatedText>
 
             <AnimatedText delay={0.2}>
-              <p className="font-body text-base lg:text-xl text-muted-foreground mb-6 lg:mb-12 leading-relaxed max-w-lg">
+              <p className="font-body text-base lg:text-xl text-muted-foreground mb-6 lg:mb-8 leading-relaxed max-w-lg">
                 Saforaai was founded to redefine <span className="text-navy font-bold italic">Homecare</span>, moving away from the institutional limitations of traditional facilities.
               </p>
             </AnimatedText>
@@ -48,15 +48,15 @@ const IntroductionSlide = memo(() => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-navy rounded-[2rem] p-8 lg:p-10 text-white shadow-glow relative overflow-hidden border border-white/10 group"
+              className="bg-navy rounded-[1.5rem] p-6 lg:p-8 text-white shadow-glow relative overflow-hidden border border-white/10 group"
             >
               <div className="absolute top-0 right-0 w-48 h-48 bg-primary/10 blur-3xl group-hover:bg-primary/20 transition-colors" />
               <div className="relative z-10">
-                <div className="flex items-center gap-3 mb-6">
+                <div className="flex items-center gap-3 mb-4">
                   <div className="w-8 h-[1px] bg-primary" />
                   <h4 className="font-body text-[10px] lg:text-xs uppercase tracking-[0.3em] text-primary font-bold">Our Core Purpose</h4>
                 </div>
-                <p className="font-display text-2xl lg:text-4xl font-bold italic leading-tight">
+                <p className="font-display text-xl lg:text-2xl font-bold italic leading-tight">
                   "To serve elderly people with <span className="text-primary">unwavering dignity</span>, respect, and consistency."
                 </p>
               </div>

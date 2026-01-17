@@ -11,7 +11,7 @@ const ConclusionSlide = () => {
   ];
 
   return (
-    <section className="slide bg-white relative overflow-hidden flex items-center justify-center">
+    <section className="slide bg-white relative overflow-hidden flex">
       {/* Mesh Background */}
       <MeshBackground colors={["#0D9488", "#1E293B", "#115E59"]} className="opacity-40" />
 
@@ -38,25 +38,25 @@ const ConclusionSlide = () => {
         ))}
       </div>
 
-      <div className="max-w-5xl mx-auto w-full relative z-10 text-center px-4">
+      <div className="max-w-5xl mx-auto w-full relative z-10 text-center px-4 py-8 lg:py-12">
         <motion.div
           initial={{ scale: 0, rotate: -20 }}
           whileInView={{ scale: 1, rotate: 0 }}
           viewport={{ once: true }}
           transition={{ type: "spring", stiffness: 200, damping: 15 }}
-          className="w-20 h-20 lg:w-24 lg:h-24 rounded-[2rem] bg-white/10 backdrop-blur-xl flex items-center justify-center mx-auto mb-10 border border-white/20 shadow-2xl group transition-all"
+          className="w-16 h-16 lg:w-20 lg:h-20 rounded-[1.5rem] bg-white/10 backdrop-blur-xl flex items-center justify-center mx-auto mb-6 border border-white/20 shadow-2xl group transition-all"
         >
-          <Rocket className="w-10 h-10 lg:w-12 lg:h-12 text-white group-hover:scale-110 group-hover:-translate-y-1 transition-transform" />
+          <Rocket className="w-8 h-8 lg:w-10 lg:h-10 text-white group-hover:scale-110 group-hover:-translate-y-1 transition-transform" />
         </motion.div>
 
         <AnimatedText delay={0.1}>
-          <h2 className="font-display text-5xl md:text-8xl lg:text-9xl font-bold text-white mb-8 tracking-tight text-glow">
+          <h2 className="font-display text-4xl lg:text-7xl font-bold text-white mb-6 tracking-tight text-glow">
             Ready to <span className="text-gradient">Launch</span>
           </h2>
         </AnimatedText>
 
         <AnimatedText delay={0.2}>
-          <p className="font-body text-lg lg:text-3xl text-white/80 max-w-3xl mx-auto mb-16 leading-relaxed font-medium">
+          <p className="font-body text-base lg:text-xl text-white/80 max-w-3xl mx-auto mb-10 leading-relaxed font-medium">
             Saforaai is a <span className="text-white font-bold decoration-primary/50 underline underline-offset-8">low-risk, high-impact investment opportunity</span> in a sector of critical national importance.
           </p>
         </AnimatedText>
@@ -80,15 +80,15 @@ const ConclusionSlide = () => {
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.7, duration: 0.8 }}
-          className="bg-white rounded-[4rem] p-10 lg:p-16 text-left max-w-4xl mx-auto shadow-2xl relative overflow-hidden group border border-white/20"
+          className="bg-white rounded-[3rem] p-6 lg:p-10 text-left max-w-4xl mx-auto shadow-2xl relative overflow-hidden group border border-white/20"
         >
           <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 blur-3xl rounded-full -z-10 group-hover:bg-primary/10 transition-colors" />
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div>
               <h3 className="font-display text-4xl lg:text-5xl font-bold text-navy mb-8 leading-tight">
                 Let's Make an <br /><span className="text-gradient">Impact Together</span>

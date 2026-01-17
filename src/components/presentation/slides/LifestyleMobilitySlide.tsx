@@ -31,32 +31,32 @@ const LifestyleMobilitySlide = memo(() => {
     ];
 
     return (
-        <section className="slide bg-white relative overflow-hidden flex items-center py-20 lg:py-0">
+        <section className="slide bg-white relative overflow-hidden flex">
             {/* Mesh Background */}
             <MeshBackground colors={["#FDF2F8", "#F0FDFA", "#FFF7ED"]} />
 
             <FloatingElement icon={Car} className="top-[10%] left-[5%] w-20 h-20 text-primary/10" delay={0.1} />
             <FloatingElement icon={MapPin} className="bottom-[15%] left-[10%] w-12 h-12 text-coral/10" delay={0.4} />
-            <FloatingElement icon={Coffee} className="top-[20%] right-[10%] w-10 h-10 text-gold/10" delay={0.7} />
+            <FloatingElement icon={Coffee} className="top-[20%] right-[10%] w-10 h-10 text-gold/20" delay={0.7} />
 
             <div className="max-w-7xl mx-auto w-full relative z-10 px-4">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
 
                     <div className="order-2 lg:order-1">
-                        <AnimatedText className="mb-4">
+                        <AnimatedText className="mb-2">
                             <span className="font-body text-xs lg:text-sm uppercase tracking-[0.4em] text-primary font-bold">
                                 Section 07
                             </span>
                         </AnimatedText>
 
                         <AnimatedText delay={0.1}>
-                            <h2 className="font-display text-4xl md:text-8xl font-bold text-navy mb-10 leading-[1.1] tracking-tight">
+                            <h2 className="font-display text-4xl lg:text-7xl font-bold text-navy mb-6 leading-[1.1] tracking-tight">
                                 The <span className="text-gradient">Extra Mile</span>
                             </h2>
                         </AnimatedText>
 
                         <AnimatedText delay={0.2}>
-                            <p className="font-body text-lg lg:text-2xl text-muted-foreground mb-10 lg:mb-16 leading-relaxed max-w-xl">
+                            <p className="font-body text-base lg:text-xl text-muted-foreground mb-6 lg:mb-10 leading-relaxed max-w-xl">
                                 Beyond medical support, we focus on lifestyle and dignity. We bring independent living to life with specialized mobility and premium home-based grooming.
                             </p>
                         </AnimatedText>

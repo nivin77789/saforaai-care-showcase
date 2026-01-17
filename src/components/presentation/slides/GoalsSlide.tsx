@@ -59,29 +59,29 @@ const GoalsSlide = () => {
   };
 
   return (
-    <section className="slide bg-white relative overflow-hidden flex items-center">
+    <section className="slide bg-white relative overflow-hidden flex">
       {/* Decorative Background */}
       <MeshBackground colors={["#FDF4FF", "#F0FDFA", "#FFF7ED"]} />
 
-      <div className="max-w-7xl mx-auto w-full relative z-10 px-4">
-        <div className="text-center mb-16">
-          <AnimatedText className="mb-4">
+      <div className="max-w-7xl mx-auto w-full relative z-10 px-4 py-8 lg:py-12">
+        <div className="text-center mb-8 lg:mb-10">
+          <AnimatedText className="mb-2">
             <span className="font-body text-sm uppercase tracking-[0.4em] text-primary font-bold">
               Section 10
             </span>
           </AnimatedText>
 
           <AnimatedText delay={0.1}>
-            <h2 className="font-display text-5xl md:text-8xl font-bold text-navy mb-8 tracking-tight">
+            <h2 className="font-display text-4xl lg:text-7xl font-bold text-navy mb-6 tracking-tight">
               Goals & <span className="text-gradient">Objectives</span>
             </h2>
           </AnimatedText>
 
           <AnimatedText delay={0.2}>
-            <div className="inline-flex items-center gap-3 bg-white px-6 py-3 rounded-full shadow-glow border border-primary/10">
-              <span className="font-display text-2xl font-bold text-primary">2026</span>
-              <div className="w-px h-6 bg-primary/20" />
-              <span className="font-body text-xs text-navy font-bold uppercase tracking-[0.2em]">Strategic Roadmap</span>
+            <div className="inline-flex items-center gap-3 bg-white px-4 py-2 rounded-full shadow-glow border border-primary/10">
+              <span className="font-display text-xl font-bold text-primary">2026</span>
+              <div className="w-px h-4 bg-primary/20" />
+              <span className="font-body text-[10px] text-navy font-bold uppercase tracking-[0.2em]">Strategic Roadmap</span>
             </div>
           </AnimatedText>
         </div>
@@ -98,20 +98,20 @@ const GoalsSlide = () => {
               key={index}
               variants={item}
               whileHover={{ y: -10, transition: { duration: 0.3 } }}
-              className="card-glass rounded-[2rem] p-8 lg:p-10 flex flex-col items-center text-center group"
+              className="card-glass rounded-[1.5rem] p-6 lg:p-8 flex flex-col items-center text-center group"
             >
-              <div className={`w-16 h-16 lg:w-20 lg:h-20 rounded-[1.5rem] ${goal.bg} flex items-center justify-center mb-8 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500`}>
-                <goal.icon className={`w-8 h-8 lg:w-10 lg:h-10 ${goal.color}`} />
+              <div className={`w-14 h-14 lg:w-16 lg:h-16 rounded-[1.2rem] ${goal.bg} flex items-center justify-center mb-6 lg:mb-8 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500`}>
+                <goal.icon className={`w-7 h-7 lg:w-8 lg:h-8 ${goal.color}`} />
               </div>
 
-              <p className="font-body text-base lg:text-xl text-navy font-bold leading-relaxed mb-8">
+              <p className="font-body text-base lg:text-lg text-navy font-bold leading-relaxed mb-4">
                 {goal.text}
               </p>
 
-              <div className="mt-auto w-full flex justify-center pt-8 border-t border-black/5">
+              <div className="mt-auto w-full flex justify-center pt-4 border-t border-black/5">
                 <div className={`flex items-center gap-2 ${goal.color} opacity-40 group-hover:opacity-100 transition-all duration-500`}>
-                  <CheckCircle2 className="w-5 h-5 lg:w-6 lg:h-6" />
-                  <span className="font-body text-xs uppercase tracking-widest font-bold">Priority Objective</span>
+                  <CheckCircle2 className="w-4 h-4" />
+                  <span className="font-body text-[10px] uppercase tracking-widest font-bold">Priority Objective</span>
                 </div>
               </div>
             </motion.div>

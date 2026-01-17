@@ -23,7 +23,7 @@ const ExecutiveSummarySlide = memo(() => {
   ];
 
   return (
-    <section className="slide bg-navy relative overflow-hidden min-h-screen flex items-center">
+    <section className="slide bg-navy relative overflow-hidden flex">
       {/* Mesh Background */}
       <MeshBackground colors={["#0D9488", "#1E293B", "#115E59"]} className="opacity-40" />
 
@@ -31,19 +31,19 @@ const ExecutiveSummarySlide = memo(() => {
         <Quote className="w-96 h-96 text-white" />
       </div>
 
-      <div className="max-w-7xl mx-auto w-full relative z-10 px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+      <div className="max-w-7xl mx-auto w-full relative z-10 px-4 py-8 lg:py-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
 
           {/* Left Column: Quote and Profile */}
           <div className="lg:col-span-12 xl:col-span-7">
-            <AnimatedText className="mb-4">
+            <AnimatedText className="mb-2">
               <span className="font-body text-sm uppercase tracking-[0.4em] text-primary font-bold">
                 Section 02
               </span>
             </AnimatedText>
 
             <AnimatedText delay={0.1}>
-              <h2 className="font-display text-5xl lg:text-8xl font-bold text-white mb-8 lg:mb-16 tracking-tight">
+              <h2 className="font-display text-4xl lg:text-7xl font-bold text-white mb-6 lg:mb-10 tracking-tight">
                 Executive <span className="text-gradient">Summary</span>
               </h2>
             </AnimatedText>
@@ -52,12 +52,12 @@ const ExecutiveSummarySlide = memo(() => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="relative p-10 md:p-16 bg-white/5 backdrop-blur-xl rounded-[4rem] border border-white/10 shadow-2xl overflow-hidden group"
+              className="relative p-6 md:p-10 bg-white/5 backdrop-blur-xl rounded-[2rem] border border-white/10 shadow-2xl overflow-hidden group"
             >
-              <Quote className="absolute top-10 left-10 w-16 h-16 text-primary opacity-20 group-hover:scale-110 transition-transform duration-700" />
+              <Quote className="absolute top-6 left-6 w-12 h-12 text-primary opacity-20 group-hover:scale-110 transition-transform duration-700" />
 
-              <blockquote className="relative z-10 mb-16">
-                <p className="font-body text-2xl md:text-3xl text-white/90 leading-relaxed italic font-medium">
+              <blockquote className="relative z-10 mb-10">
+                <p className="font-body text-xl md:text-2xl text-white/90 leading-relaxed italic font-medium">
                   "Saforaai is a <span className="text-primary font-bold">purpose-driven</span> organisation founded to respond to one of the UK's fastest-growing needs: high-quality care delivered with dignity."
                 </p>
               </blockquote>

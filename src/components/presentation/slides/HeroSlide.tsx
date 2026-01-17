@@ -6,7 +6,7 @@ import { memo } from "react";
 
 const HeroSlide = memo(() => {
   return (
-    <section className="slide bg-white relative overflow-hidden flex items-center">
+    <section className="slide bg-white relative overflow-hidden flex">
       {/* Background Decorative Elements */}
       <MeshBackground colors={["#ECFEFF", "#FDF2F8", "#FFFBEB"]} />
 
@@ -29,7 +29,7 @@ const HeroSlide = memo(() => {
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="flex items-center gap-4 mb-8 lg:mb-10"
+              className="flex items-center gap-4 mb-4 lg:mb-6"
             >
               <div className="w-16 h-[2px] bg-gradient-to-r from-primary to-transparent rounded-full" />
               <span className="font-body text-sm uppercase tracking-[0.5em] text-primary font-bold">
@@ -41,7 +41,7 @@ const HeroSlide = memo(() => {
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-              className="font-display text-6xl md:text-9xl lg:text-[10rem] font-bold mb-8 lg:mb-10 tracking-tighter leading-none"
+              className="font-display text-6xl md:text-8xl lg:text-9xl font-bold mb-4 lg:mb-6 tracking-tighter leading-none"
             >
               <span className="text-navy">Safor</span>
               <span className="text-gradient">aai</span>
@@ -51,7 +51,7 @@ const HeroSlide = memo(() => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="font-body text-xl md:text-3xl text-navy/70 max-w-2xl mb-12 lg:mb-16 leading-relaxed font-medium"
+              className="font-body text-xl md:text-2xl text-navy/70 max-w-2xl mb-8 lg:mb-10 leading-relaxed font-medium"
             >
               Compassionate Elderly Care, <br />
               <span className="text-gradient font-bold italic underline decoration-primary/30 underline-offset-8">Delivered with Dignity.</span>

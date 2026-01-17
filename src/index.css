@@ -128,7 +128,7 @@
 
 @layer components {
   .slide {
-    @apply min-h-screen w-full flex flex-col justify-center px-4 md:px-12 lg:px-24 py-4 md:py-8 lg:py-16 relative overflow-hidden snap-start;
+    @apply min-h-screen w-full flex flex-col justify-start px-4 md:px-12 lg:px-24 py-12 md:py-16 lg:py-20 relative snap-start;
   }
 
   .slide-dark {

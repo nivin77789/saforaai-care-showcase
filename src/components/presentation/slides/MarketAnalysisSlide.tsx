@@ -12,28 +12,28 @@ const MarketAnalysisSlide = memo(() => {
     ];
 
     return (
-        <section className="slide bg-white relative overflow-hidden flex items-center py-20 lg:py-0">
+        <section className="slide bg-white relative overflow-hidden flex">
             {/* Mesh Background */}
             <MeshBackground colors={["#F8FAFC", "#F0FDFA", "#FFF7ED"]} />
 
-            <div className="max-w-7xl mx-auto w-full relative z-10 px-4">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div className="max-w-7xl mx-auto w-full relative z-10 px-4 py-8 lg:py-12">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
                     <div>
-                        <AnimatedText className="mb-4">
+                        <AnimatedText className="mb-2">
                             <span className="font-body text-xs lg:text-sm uppercase tracking-[0.4em] text-primary font-bold">
                                 Section 03
                             </span>
                         </AnimatedText>
 
                         <AnimatedText delay={0.1}>
-                            <h2 className="font-display text-4xl md:text-8xl font-bold text-navy mb-8 leading-[1.1] tracking-tight">
+                            <h2 className="font-display text-4xl lg:text-7xl font-bold text-navy mb-6 leading-[1.1] tracking-tight">
                                 Market <br />
                                 <span className="text-gradient">Analysis</span>
                             </h2>
                         </AnimatedText>
 
                         <AnimatedText delay={0.2}>
-                            <p className="font-body text-lg lg:text-2xl text-muted-foreground mb-8 lg:mb-12 leading-relaxed max-w-xl">
+                            <p className="font-body text-base lg:text-xl text-muted-foreground mb-6 lg:mb-8 leading-relaxed max-w-xl">
                                 We are entering a market with <span className="text-navy font-bold">unprecedented demand</span>. The UK's aging population requires specialized, reliable care that is currently under-supplied in regional hubs like Stratford-upon-Avon.
                             </p>
                         </AnimatedText>
