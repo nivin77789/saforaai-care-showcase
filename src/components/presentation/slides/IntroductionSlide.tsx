@@ -40,7 +40,7 @@ const IntroductionSlide = memo(() => {
 
             <AnimatedText delay={0.2}>
               <p className="font-body text-base lg:text-xl text-muted-foreground mb-6 lg:mb-8 leading-relaxed max-w-lg">
-                Saforaai was founded to redefine <span className="text-navy font-bold italic">Homecare</span>, moving away from the institutional limitations of traditional facilities.
+                Avon Angels Home Care was founded to redefine <span className="text-navy font-bold italic">Homecare</span>, moving away from the institutional limitations of traditional facilities.
               </p>
             </AnimatedText>
 

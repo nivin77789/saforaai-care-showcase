@@ -12,6 +12,16 @@ const NotFound = () => {
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background p-4">
+      <div className="fixed top-4 left-4 z-50 flex items-center gap-3 bg-white/80 backdrop-blur-md px-4 py-2 rounded-full border border-white/60 shadow-glow">
+        <img
+          src="/avon angels.png"
+          alt="Avon Angels Home Care logo"
+          className="h-8 w-auto object-contain"
+        />
+        <span className="hidden sm:inline font-display text-sm font-bold text-navy tracking-wide">
+          Avon Angels Home Care
+        </span>
+      </div>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -26,7 +36,7 @@ const NotFound = () => {
           className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3 rounded-full font-body font-semibold shadow-glow hover:bg-primary/90 transition-all"
         >
           <Home className="w-5 h-5" />
-          Return to Saforaai
+          Return to Avon Angels Home Care
         </motion.a>
       </motion.div>
     </div>

@@ -53,9 +53,9 @@ const AdvantagesSlide = () => {
                         </h2>
                     </AnimatedText>
 
-                    <AnimatedText delay={0.2}>
+                        <AnimatedText delay={0.2}>
                         <p className="font-body text-base lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                            Why SaforaAI is set to redefine the homecare landscape through innovation and excellence.
+                            Why Avon Angels Home Care is set to redefine the homecare landscape through innovation and excellence.
                         </p>
                     </AnimatedText>
                 </div>

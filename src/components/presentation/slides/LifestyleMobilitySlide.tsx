@@ -93,8 +93,8 @@ const LifestyleMobilitySlide = memo(() => {
                         <div className="relative rounded-[2.5rem] lg:rounded-[5rem] overflow-hidden shadow-2xl border-[8px] lg:border-[12px] border-white group transition-all duration-700 hover:scale-[1.02] hover:-rotate-1">
                             <img
                                 src="/accessible_shopping_van_1767710243118.png"
-                                alt="Saforaai Accessible Mobility"
-                                className="w-full h-auto object-cover transition-transform duration-1000 group-hover:scale-110"
+                                alt="Avon Angels Accessible Mobility"
+                                className="w-full h-64 md:h-80 lg:h-[22rem] xl:h-[26rem] object-cover transition-transform duration-1000 group-hover:scale-110"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-700" />
                             <div className="absolute bottom-6 left-6 right-6 lg:bottom-12 lg:left-12 lg:right-12 translate-y-4 group-hover:translate-y-0 transition-transform duration-700">

@@ -1,6 +1,6 @@
 import { User, Heart, ShieldCheck, Zap, Quote, Star, Activity, UserCheck } from "lucide-react";
 import AnimatedText from "../AnimatedText";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import MeshBackground from "../MeshBackground";
 import { memo } from "react";
 
@@ -46,7 +46,7 @@ const PersonasSlide = memo(() => {
     }
   };
 
-  const item: any = {
+  const item: Variants = {
     hidden: { opacity: 0, y: 30 },
     show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeInOut" } }
   };

@@ -10,7 +10,7 @@ const HeroSlide = memo(() => {
       {/* Background Decorative Elements */}
       <MeshBackground colors={["#ECFEFF", "#FDF2F8", "#FFFBEB"]} />
 
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary/10 to-transparent pointer-events-none" />
+      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary/15 via-coral/10 to-transparent pointer-events-none" />
 
       <FloatingElement icon={Heart} className="top-[15%] left-[10%] w-16 h-16 text-primary/20" delay={0.2} />
       <FloatingElement icon={Star} className="bottom-[20%] left-[5%] w-12 h-12 text-gold/20" delay={0.5} />
@@ -29,11 +29,14 @@ const HeroSlide = memo(() => {
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="flex items-center gap-4 mb-4 lg:mb-6"
+              className="flex flex-wrap items-center gap-3 mb-4 lg:mb-6"
             >
-              <div className="w-16 h-[2px] bg-gradient-to-r from-primary to-transparent rounded-full" />
-              <span className="font-body text-sm uppercase tracking-[0.5em] text-primary font-bold">
+              <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 font-body text-[11px] lg:text-xs uppercase tracking-[0.25em] text-primary font-bold">
+                <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
                 Business Plan 2026
+              </span>
+              <span className="inline-flex items-center gap-2 rounded-full border border-navy/10 bg-white/80 px-3 py-1 font-body text-[11px] lg:text-xs text-navy/70 shadow-sm">
+                Stratford-upon-Avon · UK Home Care
               </span>
             </motion.div>
 
@@ -41,42 +44,67 @@ const HeroSlide = memo(() => {
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-              className="font-display text-6xl md:text-8xl lg:text-9xl font-bold mb-4 lg:mb-6 tracking-tighter leading-none"
+              className="font-display text-5xl md:text-7xl lg:text-8xl font-bold mb-4 lg:mb-5 tracking-tight leading-tight"
             >
-              <span className="text-navy">Safor</span>
-              <span className="text-gradient">aai</span>
+              <span className="block text-navy">Avon Angels</span>
+              <span className="block text-gradient">Home Care</span>
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="font-body text-xl md:text-2xl text-navy/70 max-w-2xl mb-8 lg:mb-10 leading-relaxed font-medium"
+              className="font-body text-lg md:text-2xl text-navy/80 max-w-2xl mb-6 lg:mb-8 leading-relaxed font-medium"
             >
-              Compassionate Elderly Care, <br />
-              <span className="text-gradient font-bold italic underline decoration-primary/30 underline-offset-8">Delivered with Dignity.</span>
+              Compassionate, premium home care for older adults —{" "}
+              <span className="text-gradient font-bold italic underline decoration-primary/30 underline-offset-8">
+                dignity, safety & true independence.
+              </span>
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.7 }}
-              className="flex flex-wrap gap-4 lg:gap-6"
+              className="flex flex-col gap-4 lg:gap-6"
             >
-              {[
-                { icon: Heart, label: "Person-Centered", color: "text-primary", bg: "bg-primary/5" },
-                { icon: Shield, label: "Trusted & Secure", color: "text-navy", bg: "bg-navy/5" },
-              ].map((item) => (
-                <div
-                  key={item.label}
-                  className="card-glass flex items-center gap-4 px-6 lg:px-10 py-4 lg:py-5 rounded-2xl group hover:-translate-y-1 transition-all duration-500 cursor-default"
-                >
-                  <div className={`w-8 h-8 lg:w-10 lg:h-10 rounded-xl ${item.bg} flex items-center justify-center group-hover:scale-110 transition-transform`}>
-                    <item.icon className="w-4 h-4 lg:w-5 lg:h-5 text-navy" />
+              <div className="inline-flex flex-wrap items-center gap-3">
+                {[
+                  { icon: Heart, label: "Person-Centred Care" },
+                  { icon: Shield, label: "CQC-Ready Compliance" },
+                  { icon: Users, label: "Handpicked Care Team" },
+                ].map((item) => (
+                  <div
+                    key={item.label}
+                    className="inline-flex items-center gap-2 rounded-full bg-white/80 border border-black/5 px-4 py-2 shadow-sm"
+                  >
+                    <item.icon className="w-4 h-4 text-primary" />
+                    <span className="font-body text-xs lg:text-sm font-semibold text-navy">
+                      {item.label}
+                    </span>
                   </div>
-                  <span className="font-body text-sm lg:text-lg font-bold text-navy">{item.label}</span>
+                ))}
+              </div>
+
+              <div className="flex flex-wrap items-center gap-4">
+                <button
+                  className="inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-7 py-3 font-body text-sm lg:text-base font-semibold shadow-glow hover:bg-primary/90 transition-all"
+                >
+                  Explore the Investment Story
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+                <div className="flex items-center gap-3 text-xs lg:text-sm text-navy/60 font-body">
+                  <div className="flex -space-x-2">
+                    <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-primary/10 border border-white text-[10px] font-bold text-primary">
+                      24/7
+                    </span>
+                    <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-gold/10 border border-white text-[10px] font-bold text-gold">
+                      CQC
+                    </span>
+                  </div>
+                  <span>Designed for families in Stratford-upon-Avon</span>
                 </div>
-              ))}
+              </div>
             </motion.div>
           </div>
 
@@ -88,9 +116,9 @@ const HeroSlide = memo(() => {
           >
             <div className="relative z-10 rounded-[2.5rem] lg:rounded-[5rem] overflow-hidden shadow-2xl border-[8px] lg:border-[12px] border-white group transition-all duration-1000 hover:rotate-0 hover:scale-[1.02]">
               <img
-                src="/caregiver_elderly_hero_1767709358442.png"
-                alt="Compassionate Care"
-                className="w-full h-auto object-cover transition-transform duration-1000 group-hover:scale-110"
+                src="/gemini_1.png"
+                alt="Avon Angels Home Care"
+                className="w-full h-64 md:h-80 lg:h-[22rem] xl:h-[26rem] object-cover transition-transform duration-1000 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-navy/40 to-transparent opacity-40 group-hover:opacity-20 transition-opacity duration-700" />
 

@@ -1,12 +1,12 @@
 import { CheckCircle2, Target, TrendingUp, ShieldCheck, Heart, Zap, Award } from "lucide-react";
 import AnimatedText from "../AnimatedText";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import MeshBackground from "../MeshBackground";
 
 const GoalsSlide = () => {
   const goals = [
     {
-      text: "Register Saforaai with all required UK regulatory bodies (CQC)",
+      text: "Register Avon Angels Home Care with all required UK regulatory bodies (CQC)",
       icon: ShieldCheck,
       color: "text-primary",
       bg: "bg-primary/10"
@@ -53,7 +53,7 @@ const GoalsSlide = () => {
     }
   };
 
-  const item: any = {
+  const item: Variants = {
     hidden: { opacity: 0, scale: 0.9, y: 30 },
     show: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.6, ease: "easeInOut" } }
   };

@@ -58,7 +58,7 @@ const ExecutiveSummarySlide = memo(() => {
 
               <blockquote className="relative z-10 mb-10">
                 <p className="font-body text-xl md:text-2xl text-white/90 leading-relaxed italic font-medium">
-                  "Saforaai is a <span className="text-primary font-bold">purpose-driven</span> organisation founded to respond to one of the UK's fastest-growing needs: high-quality care delivered with dignity."
+                  "Avon Angels Home Care is a <span className="text-primary font-bold">purpose-driven</span> organisation founded to respond to one of the UK's fastest-growing needs: high-quality care delivered with dignity."
                 </p>
               </blockquote>
 

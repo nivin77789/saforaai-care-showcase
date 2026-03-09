@@ -18,9 +18,20 @@ const GoalsSlide = lazy(() => import("@/components/presentation/slides/GoalsSlid
 const StrategicPrioritiesSlide = lazy(() => import("@/components/presentation/slides/StrategicPrioritiesSlide"));
 const OperationsWorkforceSlide = lazy(() => import("@/components/presentation/slides/OperationsWorkforceSlide"));
 const TechnologyPartnershipsSlide = lazy(() => import("@/components/presentation/slides/TechnologyPartnershipsSlide"));
-const FinancialPlanSlide = lazy(() => import("@/components/presentation/slides/FinancialPlanSlide"));
-const BusinessProfitSlide = lazy(() => import("@/components/presentation/slides/BusinessProfitSlide"));
 const AdvantagesSlide = lazy(() => import("@/components/presentation/slides/AdvantagesSlide"));
+const FinancialPlanSlide = lazy(() => import("@/components/presentation/slides/FinancialPlanSlide"));
+const DetailedFinancialProjectionsSlide = lazy(() => import("@/components/presentation/slides/DetailedFinancialProjectionsSlide"));
+const SWOTAnalysisSlide = lazy(() => import("@/components/presentation/slides/SWOTAnalysisSlide"));
+const CompetitiveAnalysisSlide = lazy(() => import("@/components/presentation/slides/CompetitiveAnalysisSlide"));
+const RiskAnalysisSlide = lazy(() => import("@/components/presentation/slides/RiskAnalysisSlide"));
+const ImplementationTimelineSlide = lazy(() => import("@/components/presentation/slides/ImplementationTimelineSlide"));
+const TeamAdvisorsSlide = lazy(() => import("@/components/presentation/slides/TeamAdvisorsSlide"));
+const MarketingSalesStrategySlide = lazy(() => import("@/components/presentation/slides/MarketingSalesStrategySlide"));
+const ExitStrategySlide = lazy(() => import("@/components/presentation/slides/ExitStrategySlide"));
+const ExitStrategyMilestonesSlide = lazy(() => import("@/components/presentation/slides/ExitStrategyMilestonesSlide"));
+const ExitStrategyReturnsSlide = lazy(() => import("@/components/presentation/slides/ExitStrategyReturnsSlide"));
+const ExitStrategyReadinessSlide = lazy(() => import("@/components/presentation/slides/ExitStrategyReadinessSlide"));
+const BusinessProfitSlide = lazy(() => import("@/components/presentation/slides/BusinessProfitSlide"));
 const ConclusionSlide = lazy(() => import("@/components/presentation/slides/ConclusionSlide"));
 
 const slideNames = [
@@ -40,6 +51,17 @@ const slideNames = [
   "Technology",
   "Strategic Advantages",
   "Financial Plan",
+  "5-Year Projections",
+  "SWOT Analysis",
+  "Competitive Landscape",
+  "Risk Analysis",
+  "Implementation Timeline",
+  "Leadership Team",
+  "Marketing Strategy",
+  "Exit Strategy: Options",
+  "Exit Strategy: Milestones",
+  "Exit Strategy: Returns",
+  "Exit Strategy: Readiness",
   "Economic Potential",
   "Conclusion",
 ];
@@ -91,6 +113,17 @@ const Index = () => {
     TechnologyPartnershipsSlide,
     AdvantagesSlide,
     FinancialPlanSlide,
+    DetailedFinancialProjectionsSlide,
+    SWOTAnalysisSlide,
+    CompetitiveAnalysisSlide,
+    RiskAnalysisSlide,
+    ImplementationTimelineSlide,
+    TeamAdvisorsSlide,
+    MarketingSalesStrategySlide,
+    ExitStrategySlide,
+    ExitStrategyMilestonesSlide,
+    ExitStrategyReturnsSlide,
+    ExitStrategyReadinessSlide,
     BusinessProfitSlide,
     ConclusionSlide,
   ], []);
@@ -147,6 +180,39 @@ const Index = () => {
       className="relative bg-background h-screen overflow-x-auto overflow-y-hidden flex flex-row snap-x snap-mandatory scroll-smooth"
     >
       <DecorativeBackground />
+
+      {/* Global Logo - Avon Angels Home Care */}
+      <motion.div
+        initial={{ opacity: 0, y: -20, scale: 0.95 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        whileHover={{ scale: 1.05, rotate: -1 }}
+        className="fixed top-4 left-4 z-[120]"
+      >
+        <div className="relative flex items-center gap-3 bg-white/85 backdrop-blur-md px-4 py-2 rounded-full border border-white/70 shadow-glow overflow-hidden">
+          {/* Soft pulsing halo */}
+          <motion.div
+            aria-hidden="true"
+            className="absolute inset-0 rounded-full bg-primary/10"
+            initial={{ opacity: 0.3, scale: 0.9 }}
+            animate={{ opacity: [0.25, 0.5, 0.25], scale: [0.9, 1.05, 0.9] }}
+            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+          />
+
+          <motion.img
+            src="/avon angels.png"
+            alt="Avon Angels Home Care logo"
+            className="relative h-8 w-auto object-contain drop-shadow-sm"
+            initial={{ rotate: 0 }}
+            whileHover={{ rotate: 3 }}
+            transition={{ type: "spring", stiffness: 260, damping: 18 }}
+          />
+
+          <span className="relative hidden sm:inline font-display text-sm font-bold text-navy tracking-wide">
+            Avon Angels Home Care
+          </span>
+        </div>
+      </motion.div>
 
       <motion.div
         className="fixed top-0 left-0 right-0 h-1.5 bg-primary z-[100] origin-left"

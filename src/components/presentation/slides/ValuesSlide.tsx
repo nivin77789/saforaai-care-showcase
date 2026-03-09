@@ -35,7 +35,7 @@ const ValuesSlide = memo(() => {
                             <img
                                 src="/elderly_joy_home_1767709482773.png"
                                 alt="Happy Elderly Couple"
-                                className="w-full h-auto object-cover transition-transform duration-1000 group-hover:scale-110"
+                                className="w-full h-64 md:h-80 lg:h-[22rem] xl:h-[26rem] object-cover transition-transform duration-1000 group-hover:scale-110"
                             />
                             <div className="absolute inset-0 bg-gradient-to-tr from-coral/40 to-transparent opacity-60" />
                             <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-primary/20 blur-[60px] rounded-full group-hover:bg-primary/30 transition-colors" />

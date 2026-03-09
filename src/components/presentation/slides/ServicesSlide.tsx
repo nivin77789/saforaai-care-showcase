@@ -89,7 +89,7 @@ const ServicesSlide = memo(() => {
                 </div>
                 <div>
                   <h3 className="font-display text-2xl lg:text-3xl font-bold">
-                    The Saforaai Edge
+                    The Avon Angels Edge
                   </h3>
                   <div className="h-1 w-20 bg-primary mt-2 rounded-full" />
                 </div>
